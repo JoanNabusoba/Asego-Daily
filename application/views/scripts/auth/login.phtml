@@ -1,0 +1,26 @@
+<br /><br />
+<?php 
+$this->title = "Login";
+$this->headTitle($this->title);
+?>
+<div id="view-content">
+<header class="clearfix vertical-padding">
+
+                <h1 class="logo align-center" style="margin-bottom:-40px">
+                    Asego Daily<small><?php echo $this->escape($this->title); ?></small>
+                </h1>
+                <nav class="ink-navigation xlarge-push-right large-push-right ">
+                    <ul class="menu horizontal black">
+                        <li class="active"><a href="<?php echo $this->url(array('controller'=>'index',
+'action'=>'index'));?>">home</a></li>
+                        
+                    </ul>
+                </nav>
+
+            </header>
+	<?php if(isset($this->errorMessage)): ?>
+    <?php echo $this->errorMessage; ?>
+<?php endif; ?>
+ 
+<?php echo $this->form; ?>
+</div>

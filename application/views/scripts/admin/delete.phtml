@@ -1,0 +1,39 @@
+<?php
+$this->title = "Delete User";
+$this->headTitle($this->title);
+?>
+<div id="view-content">
+<header class="clearfix vertical-padding">
+
+                <h1 class="logo align-center" style="margin-bottom:-40px">
+                    Asego Daily<small><?php echo $this->escape($this->title); ?></small>
+                </h1>
+                <nav class="ink-navigation xlarge-push-right large-push-right ">
+                    <ul class="menu horizontal black">
+                        <li class="active"><a href="<?php echo $this->url(array('controller'=>'index',
+'action'=>'index'));?>">home</a></li>
+<li class="active"><a href="<?php echo $this->url(array('controller'=>'admin',
+'action'=>'index'));?>">Admin Panel</a></li>
+<li><?php echo $this->loggedInAs(); ?></li>
+</header>
+<br>
+<br>
+<div id="usertable" style= "margin:0 auto; width:50%">
+
+<p>Are you sure that you want to delete
+'<?php echo $this->escape($this->user['email']); ?>' of role 
+'<?php echo $this->escape($this->user['role']); ?>'?
+</p>
+<form style= "width:100%" action="<?php echo $this->url(array('action'=>'delete')); ?>" method="post">
+
+<input type="hidden" name="id" value="<?php echo $this->user['id']; ?>" />
+<div class="all-100">
+<input class ="ink-button blue all-40" type="submit" name="del" value="Yes" />
+<input class ="ink-button blue all-40" type="submit" name="del" value="No" />
+</div>
+</form>
+<br>
+<br>
+<br>
+</div>
+</div>

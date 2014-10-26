@@ -1,0 +1,78 @@
+<?php 
+$this->title = "News";
+$this->headTitle($this->title);
+?>
+
+
+
+            <header class="clearfix vertical-padding">
+
+                <h1 class="logo xlarge-push-left large-push-left">
+                    Asego Daily<small><?php echo $this->escape($this->title); ?></small>
+                </h1>
+
+                <nav class="ink-navigation xlarge-push-right large-push-right half-top-space">
+                    <ul class="menu horizontal black">
+                        <li class="active"><a href="<?php echo $this->url(array('controller'=>'index',
+'action'=>'index'));?>">home</a></li>
+                        <li><?php echo $this->loggedInAs(); ?></li>
+                    </ul>
+                </nav>
+
+            </header>
+
+            <section class="column-group gutters article">
+                <div class="xlarge-70 large-70 medium-60 small-100 tiny-100">
+                    <article>
+                        <header>
+                            <h1 class="push-left"><?php echo $this->latest['title']; ?></h1>
+                            <p class="push-right"> <time pubdate="pubdate"><?php echo $this->latest['publishedAt']?></time></p>
+                        </header>
+                        <summary><?php echo $this->summary($this->latest['content'], 40) ; ?>...</summary>
+                        <figure class="ink-image vertical-space">
+                            <?php echo '<img src="' . $this->baseUrl() .'/'.  $this->latest['image'] .'" alt="">'?>
+                            <figcaption class="dark over-bottom">"
+                                <?php echo $this->summary($this->latest['content'], 20) ; ?>..."
+                            </figcaption>
+                        </figure>
+                        <p><blockquote>"<?php echo $this->summary($this->latest['content'], 20) ; ?>..."</blockquote></p>
+                        <p><?php echo $this->latest['content']; ?>
+</p>
+                        <footer>
+                            <p><small><?php echo $this->summary($this->latest['content'], 10) ; ?></small></p>
+                        </footer>
+                    </article>
+                </div>
+                <section class="xlarge-30 large-30 medium-40 small-100 tiny-100">
+                    <h2>Subscribed Content</h2>
+                    <ul class="unstyled">
+                    <?php
+foreach($this->subscribed as $subscribed):
+?>
+                    
+                        <li class="column-group half-gutters">
+                            <div class="all-40 small-50 tiny-50"><?php echo '<img src="' . $this->baseUrl() .'/'.  $this ->escape( $subscribed ->image) .'" alt="">'?></div>
+                            <div class="all-60 small-50 tiny-50"><p> <a href =" <?php echo $this ->url( array('controller' => 'index', 'action' =>'subscribed', 'id'=> $subscribed->id)); ?> " ><?php
+echo $this ->escape( $subscribed ->title);
+?></a></p></div>
+                        </li>
+                        <?php endforeach;?>
+
+                    </ul>
+                </section>
+            </section>
+            <section class="column-group gutters">
+                <?php
+foreach($this->normal as $normal):
+?>
+                <div class="all-20 small-100 tiny-100">
+                    <h3><a href="<?php echo $this ->url( array('controller' => 'index', 'action' =>'index', 'id'=> $subscribed->id)); ?>"> <?php
+echo $this ->escape( $normal ->title);
+?></a></h3>
+                    <?php echo '<img src="' . $this->baseUrl() .'/'.  $this ->escape( $normal ->image) .'" alt="">'?>
+                    <p>"<?php
+echo $this ->summary ( $this->escape( $normal ->content), 30);
+?>"</p>
+                </div>
+     <?php endforeach;?>            
+            </section>

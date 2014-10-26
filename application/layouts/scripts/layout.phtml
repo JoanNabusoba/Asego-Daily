@@ -1,0 +1,38 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type','text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('Asego Daily');
+echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<?php echo $this->headMeta(); ?>
+<?php echo $this->headTitle(); ?>
+<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/ink-flex.min.css'); ?>
+<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/font-awesome.min.css'); ?>
+<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/style.css'); ?>
+<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/widgEditor.css'); ?>
+
+<?php echo $this->headScript()->appendFile($this->baseUrl().'/js/holder.js'); ?>
+<?php echo $this->headScript()->appendScript($this->baseUrl().'/js/ink-all.min.js'); ?>
+<?php echo $this->headScript()->appendScript($this->baseUrl().'/js/autoload.js'); ?>
+
+</head>
+<body>
+        <div class="ink-grid">
+
+<div id="content">
+<?php echo $this->layout()->content; ?>
+</div>
+</div>
+<footer class="clearfix top-space">
+            <div class="ink-grid">
+                <ul class="unstyled inline half-vertical-space">
+                    <li class="active"><a href="#">About</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+                <p class="note">&copy; Asego Daily Inc. </p>
+            </div>
+        </footer>
+</body>
+</html>
