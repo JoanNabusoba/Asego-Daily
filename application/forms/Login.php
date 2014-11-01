@@ -20,7 +20,7 @@ class Application_Form_Login extends Zend_Form
                  ->setRequired(true);
  
         $signin = $this->createElement('submit','signin');
-        $signin->setLabel('Sign Up')
+        $signin->setLabel('Sign In')
                ->setIgnore(true);
 			   $signin->setAttrib('class', 'ink-button blue all-33 aling-left');
 			   $signin->setAttrib('style', 'margin-left:-20px');

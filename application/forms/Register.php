@@ -54,7 +54,7 @@ $password_confirm ->getValidator('identical')->setMessage('Sorry! Passwords do n
           $password_confirm->setAttrib('placeholder', '**********');
 
         $signup = $this->createElement('submit','signin');
-        $signup->setLabel('Sign in')
+        $signup->setLabel('Sign Up')
                ->setIgnore(true);
 			   $signup->setAttrib('class', 'ink-button blue all-33 aling-left');
 			   $signup->setAttrib('style', 'margin-left:-20px')
