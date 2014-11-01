@@ -14,9 +14,6 @@ $email->setLabel('Email')
 ->addFilter('StripTags')
 ->addFilter('StringTrim')
 ->addValidator('NotEmpty');
-
-
-
 $role = new Zend_Form_Element_Text('role');
 $role->setLabel('Role')
 ->setRequired(true)

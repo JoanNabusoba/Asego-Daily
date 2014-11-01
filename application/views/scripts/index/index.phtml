@@ -15,6 +15,7 @@ $this->headTitle($this->title);
                     <ul class="menu horizontal black">
                         <li class="active"><?php echo $this->loginchecker(); ?></li>
                         <li><?php echo $this->loggedInAs(); ?></li>
+                        <li><?php echo $this->signUp(); ?></li>
                     </ul>
                 </nav>
 
@@ -24,6 +25,8 @@ $this->headTitle($this->title);
                 <div class="xlarge-70 large-70 medium-60 small-100 tiny-100">
                     <article>
                         <header>
+<!-- Echo the title from the database -->
+
                             <h1 class="push-left"><?php echo $this->latest['title']; ?></h1>
                             <p class="push-right"> <time pubdate="pubdate"><?php echo $this->latest['publishedAt']?></time></p>
                         </header>
@@ -54,9 +57,8 @@ foreach($this->subscribed as $subscribed):
                             <div class="all-40 small-50 tiny-50"><?php echo '<img src="' . $this->baseUrl() .'/'.  $this ->escape( $subscribed ->image) .'" alt="">'?></div>
                             <div class="all-60 small-50 tiny-50"><p> <a href =" <?php echo $this ->url( array('controller' => 'index', 'action' =>'subscribed', 'id'=> $subscribed->id)); ?> " ><?php
 echo $this ->escape( $subscribed ->title);
-?></a></p><p><?php
-echo $this ->escape( $subscribed ->publishedAt);
-?> </p></div>
+?></a><br>
+<time pubdate="pubdate"> <em>Published At: </em><?php echo $this ->escape( $subscribed ->publishedAt); ?></time></p></div>
                         </li>
                         <?php endforeach;?>
 

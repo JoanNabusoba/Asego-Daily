@@ -14,15 +14,17 @@ throw new Exception("Could not find row $id");
 }
 return $row->toArray(); 
 }
-public function saveNews($title, $content,$id1,$id2,$status)
+public function saveNews($title, $content,$id1,$id2,$status, $image)
 {
+	$date = new Zend_Db_Expr('NOW()');
 $data = array(
 'content' => $content,
 'title' => $title,
 'reporterid'=> $id1,
 'editorid'=> $id2,
-'createdAt'=>'now()' ,
+'createdAt'=> $date ,
 'publishedAt'=> NULL,
+'image'=>$image,
 'status' => $status
 );
 $this->insert($data);

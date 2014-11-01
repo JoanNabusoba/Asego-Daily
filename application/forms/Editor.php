@@ -2,8 +2,13 @@
 
 class Application_Form_Editor extends Zend_Form
 {
-public function init()
-{
+
+	 public function __construct($options = null)
+	 {
+		 parent::__construct($options);
+		 // setting Form name, Form action and Form Ecryption type
+		 $this->setAction('');
+	$this->setAttrib('enctype', 'multipart/form-data');
 $this->setName('Edit Article');
 $id = new Zend_Form_Element_Hidden('id');
 $id->addFilter('Int');
@@ -25,7 +30,11 @@ $content->setLabel('Article Content')
 ->setAttrib('placeholder', 'Please Paste here editor-ready Content...');
 $this->addMyClass($content);
 $this->addMyClass($title);
-
+$element = new Zend_Form_Element_File('myimages');
+$element->setLabel('Upload an image:')
+        ->setRequired(true);
+$element->addValidator('Size', false, 102400);
+//$form->addElement($element, 'foo');
 $submit = new Zend_Form_Element_Submit('save');
 $submit->setAttrib('id', 'submitbutton');
 $submit->setAttrib('class', 'ink-button blue all-33 aling-left');
@@ -37,7 +46,7 @@ $submit2->setAttrib('class', 'ink-button blue all-33 aling-left');
 
 $this->setAttrib('class', 'ink-form control-group all-100');
  $this->setAttrib('style', 'margin:0 auto');
-$this->addElements(array($id, $title, $content, $submit,$submit2));
+$this->addElements(array($id, $title, $element, $content, $submit,$submit2));
 }    
 
 public function addMyClass($element){

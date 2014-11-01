@@ -9,6 +9,7 @@ class Application_Form_Login extends Zend_Form
         $email = $this->createElement('text','email');
         $email->setLabel('Email: ')
               ->setRequired(true);
+              
  $email->setAttrib('placeholder', 'E.g. example@yahoo.com');
  $this->setAttrib('class', 'ink-form control-group all-33');
  $this->setAttrib('style', 'margin:auto');
@@ -19,7 +20,7 @@ class Application_Form_Login extends Zend_Form
                  ->setRequired(true);
  
         $signin = $this->createElement('submit','signin');
-        $signin->setLabel('Sign in')
+        $signin->setLabel('Sign Up')
                ->setIgnore(true);
 			   $signin->setAttrib('class', 'ink-button blue all-33 aling-left');
 			   $signin->setAttrib('style', 'margin-left:-20px');

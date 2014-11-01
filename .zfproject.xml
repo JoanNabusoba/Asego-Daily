@@ -37,6 +37,7 @@
         <formFile formName="Login"/>
         <formFile formName="Editor"/>
         <formFile formName="User"/>
+        <formFile formName="Register"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
