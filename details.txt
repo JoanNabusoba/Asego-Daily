@@ -1,0 +1,15 @@
+
+The details of available users
+
+
+joannabusoba@yahoo.com
+password: password
+role: administrator
+
+suleybadr@yahoo.com
+password:password
+role: reporter
+
+zebedayo@yahoo.com
+password: password
+role: user
